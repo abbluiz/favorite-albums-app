@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <style type="text/css">
+
+        .logo {
+            width: 5%
+        }
+
+        .detail {
+
+            width: 95%;
+            padding-left: 25px;
+
+        }
+
+        .detail td {
+            font-size: 24px;
+        }
+
+    </style>
+
+
+    <h:form id="form">
+
+        <p:repeat value="#{allAlbumsView.albums}" var="album">
+
+            <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
+
+                <p:graphicImage library="images" name="#{album.name.toLowerCase()}.jpg"/>
+
+                <p:outputPanel>
+
+                    <h:panelGrid columns="2" cellpadding="5">
+
+                        <h:outputText value="Name:"/>
+                        <h:outputText value="#{album.name}" style="font-weight: bold"/>
+                        <h:outputText value="Number:"/>
+                        <h:outputText value="#{album.number}" style="font-weight: bold"/>
+                        <h:outputText value="Team:"/>
+                        <h:outputText value="#{album.team}" style="font-weight: bold"/>
+                        <h:outputText value="Country:"/>
+                        <h:outputText value="#{album.country}" style="font-weight: bold"/>
+
+                    </h:panelGrid>
+
+                </p:outputPanel>
+
+                <p:commandButton value="Update Album" action="#{allAlbumsView.redirectToEditAlbum}"
+                                 style="margin-right:20px;">
+                    <f:actionListener binding="#{editAlbumView.populateView(album.id)}" />
+                </p:commandButton>
+
+                <p:commandButton value="Remove Album from Favorite List" action="#{allAlbumsView.deleteAlbum(album.id)}"
+                                 style="margin-right:20px;"/>
+
+            </h:panelGrid>
+            <hr/>
+
+        </p:repeat>
+
+        <p:commandButton value="Add Album to Favorite List" action="#{allAlbumsView.redirectToEditAlbum}" style="margin-right:20px;"/>
+
+    </h:form>
+
+</h:body>
+
+</html>
