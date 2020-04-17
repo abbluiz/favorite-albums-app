@@ -13,9 +13,12 @@ import java.io.Serializable;
 public class EditAlbumView implements Serializable {
 
     private String name;
-    private int number;
-    private String team;
-    private String country;
+    private String artist;
+    private int year;
+    private int numberOfTracks;
+    private long totalLength;
+    private String predominantGenre;
+    private String label;
 
     @EJB
     private AlbumService albumService;
@@ -25,9 +28,12 @@ public class EditAlbumView implements Serializable {
 
         albumToUpdate = albumService.findById(albumId);
         this.setName(albumToUpdate.getName());
-        this.setCountry(albumToUpdate.getCountry());
-        this.setNumber(albumToUpdate.getNumber());
-        this.setTeam(albumToUpdate.getTeam());
+        this.setArtist(albumToUpdate.getArtist());
+        this.setYear(albumToUpdate.getYear());
+        this.setNumberOfTracks(albumToUpdate.getNumberOfTracks());
+        this.setTotalLength(albumToUpdate.getTotalLength());
+        this.setPredominantGenre(albumToUpdate.getPredominantGenre());
+        this.setLabel(albumToUpdate.getLabel());
 
     }
 
@@ -39,33 +45,57 @@ public class EditAlbumView implements Serializable {
         this.name = name;
     }
 
-    public int getNumber() {
-        return number;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 
-    public String getTeam() {
-        return team;
+    public int getYear() {
+        return year;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public String getCountry() {
-        return country;
+    public int getNumberOfTracks() {
+        return numberOfTracks;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setNumberOfTracks(int numberOfTracks) {
+        this.numberOfTracks = numberOfTracks;
+    }
+
+    public long getTotalLength() {
+        return totalLength;
+    }
+
+    public void setTotalLength(long totalLength) {
+        this.totalLength = totalLength;
+    }
+
+    public String getPredominantGenre() {
+        return predominantGenre;
+    }
+
+    public void setPredominantGenre(String predominantGenre) {
+        this.predominantGenre = predominantGenre;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String save() {
 
-        Album createdAlbum = new Album(name, number, team, country);
+        Album createdAlbum = new Album(name, artist, year, numberOfTracks, totalLength, predominantGenre, label);
 
         if (albumToUpdate != null) {
 
@@ -84,10 +114,13 @@ public class EditAlbumView implements Serializable {
     private void nullifyFields() {
 
         albumToUpdate = null;
-        this.setTeam(null);
-        this.setNumber(0);
-        this.setCountry(null);
         this.setName(null);
+        this.setArtist(null);
+        this.setYear(0);
+        this.setNumberOfTracks(0);
+        this.setTotalLength(0);
+        this.setPredominantGenre(null);
+        this.setLabel(null);
 
     }
 
