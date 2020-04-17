@@ -11,7 +11,7 @@ import java.util.Arrays;
 @FacesValidator
 public class AlbumValidator implements Validator {
 
-    private String[] albumNames = {"Ronaldo", "Romario", "Shevchenko"};
+    private String[] albumNames = {"DAMN.", "I Could Live in Hope"};
 
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object name) {
