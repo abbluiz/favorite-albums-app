@@ -24,25 +24,35 @@
                 </p:inputText>
                 <p:message for="name" id="msgname" display="icon" />
 
-                <p:outputLabel for="number" value="Number:" />
-                <p:inputText id="number" value="#{editAlbumView.number}" label="number" required="true">
-                    <p:ajax update="msgnumber" event="keyup" />
+                <p:outputLabel for="artist" value="Artist:" />
+                <p:inputText id="artist" value="#{editAlbumView.artist}" required="true" label="artist">
+                    <p:ajax update="artist" event="keyup" />
                 </p:inputText>
-                <p:message for="number" id="msgnumber" display="icon" />
+                <p:message for="artist" id="msgartist" display="icon" />
 
-                <p:outputLabel for="team" value="Team:" />
-                <p:inputText id="team" value="#{editAlbumView.team}" required="true" label="team">
-                    <f:validateLength minimum="5" />
-                    <p:ajax update="team" event="keyup" />
+                <p:outputLabel for="year" value="Year:" />
+                <p:inputText id="year" value="#{editAlbumView.year}" label="year" required="true">
+                    <p:ajax update="year" event="keyup" />
                 </p:inputText>
-                <p:message for="team" id="msgteam" display="icon" />
+                <p:message for="year" id="msgyear" display="icon" />
 
-                <p:outputLabel for="country" value="Country:" />
-                <p:inputText id="country" value="#{editAlbumView.country}" required="true" label="country">
-                    <f:validateLength minimum="4" />
-                    <p:ajax update="country" event="keyup" />
+                <p:outputLabel for="numberOfTracks" value="Number of Tracks:" />
+                <p:inputText id="numberOfTracks" value="#{editAlbumView.numberOfTracks}" label="numberOfTracks" required="true">
+                    <p:ajax update="msgnumberoftracks" event="keyup" />
                 </p:inputText>
-                <p:message for="country" id="msgcountry" display="icon" />
+                <p:message for="numberOfTracks" id="msgnumberoftracks" display="icon" />
+
+                <p:outputLabel for="predominantGenre" value="Predominant Genre:" />
+                <p:inputText id="predominantGenre" value="#{editAlbumView.predominantGenre}" required="true" label="predominantGenre">
+                    <p:ajax update="predominantGenre" event="keyup" />
+                </p:inputText>
+                <p:message for="predominantGenre" id="msgpredominantgenre" display="icon" />
+
+                <p:outputLabel for="label" value="Label:" />
+                <p:inputText id="label" value="#{editAlbumView.label}" required="true" label="label">
+                    <p:ajax update="label" event="keyup" />
+                </p:inputText>
+                <p:message for="label" id="msglabel" display="icon" />
 
             </h:panelGrid>
 
