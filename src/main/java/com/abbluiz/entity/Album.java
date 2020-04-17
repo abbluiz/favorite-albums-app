@@ -20,16 +20,23 @@ public class Album {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private int number;
-    private String team;
-    private String country;
+    private String artist;
+    private int year;
+    private int numberOfTracks;
+    private long totalLength;
+    private String predominantGenre;
+    private String label;
 
-    public Album(String name, int number, String team, String country) {
+    public Album(String name, String artist, int year, int numberOfTracks, long totalLength, String predominantGenre,
+                 String label) {
 
         this.name = name;
-        this.number = number;
-        this.team = team;
-        this.country = country;
+        this.artist = artist;
+        this.year = year;
+        this.numberOfTracks = numberOfTracks;
+        this.totalLength = totalLength;
+        this.predominantGenre = predominantGenre;
+        this.label = label;
 
     }
 
