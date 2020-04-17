@@ -23,18 +23,15 @@ public class Album {
     private String artist;
     private int year;
     private int numberOfTracks;
-    private long totalLength;
     private String predominantGenre;
     private String label;
 
-    public Album(String name, String artist, int year, int numberOfTracks, long totalLength, String predominantGenre,
-                 String label) {
+    public Album(String name, String artist, int year, int numberOfTracks, String predominantGenre, String label) {
 
         this.name = name;
         this.artist = artist;
         this.year = year;
         this.numberOfTracks = numberOfTracks;
-        this.totalLength = totalLength;
         this.predominantGenre = predominantGenre;
         this.label = label;
 

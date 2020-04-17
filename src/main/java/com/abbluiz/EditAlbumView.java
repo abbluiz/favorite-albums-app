@@ -16,7 +16,6 @@ public class EditAlbumView implements Serializable {
     private String artist;
     private int year;
     private int numberOfTracks;
-    private long totalLength;
     private String predominantGenre;
     private String label;
 
@@ -31,7 +30,6 @@ public class EditAlbumView implements Serializable {
         this.setArtist(albumToUpdate.getArtist());
         this.setYear(albumToUpdate.getYear());
         this.setNumberOfTracks(albumToUpdate.getNumberOfTracks());
-        this.setTotalLength(albumToUpdate.getTotalLength());
         this.setPredominantGenre(albumToUpdate.getPredominantGenre());
         this.setLabel(albumToUpdate.getLabel());
 
@@ -69,14 +67,6 @@ public class EditAlbumView implements Serializable {
         this.numberOfTracks = numberOfTracks;
     }
 
-    public long getTotalLength() {
-        return totalLength;
-    }
-
-    public void setTotalLength(long totalLength) {
-        this.totalLength = totalLength;
-    }
-
     public String getPredominantGenre() {
         return predominantGenre;
     }
@@ -95,7 +85,7 @@ public class EditAlbumView implements Serializable {
 
     public String save() {
 
-        Album createdAlbum = new Album(name, artist, year, numberOfTracks, totalLength, predominantGenre, label);
+        Album createdAlbum = new Album(name, artist, year, numberOfTracks, predominantGenre, label);
 
         if (albumToUpdate != null) {
 
@@ -118,7 +108,6 @@ public class EditAlbumView implements Serializable {
         this.setArtist(null);
         this.setYear(0);
         this.setNumberOfTracks(0);
-        this.setTotalLength(0);
         this.setPredominantGenre(null);
         this.setLabel(null);
 
