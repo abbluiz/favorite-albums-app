@@ -4,6 +4,9 @@
       xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
+
+    <title>My Favorite Albums</title>
+
 </h:head>
 
 <h:body>
@@ -34,7 +37,7 @@
 
             <h:panelGrid columns="2" style="width:100%" columnClasses="logo,detail">
 
-                <p:graphicImage library="images" name="#{album.name.toLowerCase()}.jpg"/>
+                <p:graphicImage library="images" name="#{album.name.toLowerCase()}.png"/>
 
                 <p:outputPanel>
 
@@ -42,12 +45,18 @@
 
                         <h:outputText value="Name:"/>
                         <h:outputText value="#{album.name}" style="font-weight: bold"/>
-                        <h:outputText value="Number:"/>
-                        <h:outputText value="#{album.number}" style="font-weight: bold"/>
-                        <h:outputText value="Team:"/>
-                        <h:outputText value="#{album.team}" style="font-weight: bold"/>
-                        <h:outputText value="Country:"/>
-                        <h:outputText value="#{album.country}" style="font-weight: bold"/>
+                        <h:outputText value="Artist:"/>
+                        <h:outputText value="#{album.artist}" style="font-weight: bold"/>
+                        <h:outputText value="Released on:"/>
+                        <h:outputText value="#{album.year}" style="font-weight: bold"/>
+                        <h:outputText value="Number of Tracks:"/>
+                        <h:outputText value="#{album.numberOfTracks}" style="font-weight: bold"/>
+                        <h:outputText value="Total Length:"/>
+                        <h:outputText value="#{album.totalLength}" style="font-weight: bold"/>
+                        <h:outputText value="Predominant Genre:"/>
+                        <h:outputText value="#{album.predominantGenre}" style="font-weight: bold"/>
+                        <h:outputText value="Label:"/>
+                        <h:outputText value="#{album.label}" style="font-weight: bold"/>
 
                     </h:panelGrid>
 
