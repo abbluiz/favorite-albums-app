@@ -6,32 +6,44 @@ import javax.faces.context.FacesContext;
 import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
-import java.util.Arrays;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 @FacesValidator
-public class AlbumValidator implements Validator {
+public class UrlValidator implements Validator {
 
-    private String[] acceptedCoverExtensions = {".jpg", ".jpeg", ".png", ".webp"};
+    public static boolean isUrlValid(String url) {
+
+        try {
+
+            URL obj = new URL(url);
+            obj.toURI();
+
+            return true;
+
+        } catch(MalformedURLException | URISyntaxException e) {
+            return false;
+        }
+
+    }
 
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object name) {
 
-        String extension = "";
+        String url = "";
 
         try {
 
-            String url = (String)name;
-            extension = url.substring(url.lastIndexOf("."));
+            url = (String)name;
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (!Arrays.asList(acceptedCoverExtensions).contains(extension)) {
+        if (!isUrlValid(url) && !url.isEmpty()) {
 
-            FacesMessage msg =
-                    new FacesMessage("Album cover art image url should have one of these extensions: "
-                            + Arrays.toString(acceptedCoverExtensions));
+            FacesMessage msg = new FacesMessage(url + " is not a valid URL.");
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
 

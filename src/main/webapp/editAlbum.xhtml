@@ -55,14 +55,14 @@
 
                 <p:outputLabel for="coverUrl" value="Cover URL:" />
                 <p:inputText id="coverUrl" value="#{editAlbumView.coverUrl}" required="true" label="coverUrl">
-                    <f:validator validatorId="albumValidator" />
-                    <p:ajax update="coverUrl" event="keyup" />
+                    <f:validator validatorId="urlValidator" />
+                    <f:validator validatorId="albumCoverExtensionValidator" />
                 </p:inputText>
                 <p:message for="coverUrl" id="msgcoverurl" display="icon" />
 
                 <p:outputLabel for="albumUrl" value="Album URL:" />
                 <p:inputText id="albumUrl" value="#{editAlbumView.albumUrl}" required="false" label="albumUrl">
-                    <p:ajax update="albumUrl" event="keyup" />
+                    <f:validator validatorId="urlValidator" />
                 </p:inputText>
                 <p:message for="albumUrl" id="msgalbumurl" display="icon" />
 
