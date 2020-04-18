@@ -9,3 +9,6 @@ A simple EJB, JPA, and JSF application to manage favorite music albums (CRUD)
 * Add new albums to list
 * Update existing albums
 * Delete existing albums
+
+## Screenshot
+
