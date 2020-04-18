@@ -18,6 +18,7 @@ public class EditAlbumView implements Serializable {
     private int numberOfTracks;
     private String predominantGenre;
     private String label;
+    private String coverUrl;
 
     @EJB
     private AlbumService albumService;
@@ -32,6 +33,7 @@ public class EditAlbumView implements Serializable {
         this.setNumberOfTracks(albumToUpdate.getNumberOfTracks());
         this.setPredominantGenre(albumToUpdate.getPredominantGenre());
         this.setLabel(albumToUpdate.getLabel());
+        this.setCoverUrl(albumToUpdate.getCoverUrl());
 
     }
 
@@ -83,9 +85,17 @@ public class EditAlbumView implements Serializable {
         this.label = label;
     }
 
+    public String getCoverUrl() {
+        return coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
     public String save() {
 
-        Album createdAlbum = new Album(name, artist, year, numberOfTracks, predominantGenre, label);
+        Album createdAlbum = new Album(name, artist, year, numberOfTracks, predominantGenre, label, coverUrl);
 
         if (albumToUpdate != null) {
 
@@ -110,6 +120,7 @@ public class EditAlbumView implements Serializable {
         this.setNumberOfTracks(0);
         this.setPredominantGenre(null);
         this.setLabel(null);
+        this.setCoverUrl(null);
 
     }
 
