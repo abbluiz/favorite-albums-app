@@ -12,3 +12,4 @@ A simple EJB, JPA, and JSF application to manage favorite music albums (CRUD)
 
 ## Screenshot
 
+![](https://i.postimg.cc/wvsL9VXV/Screenshot-from-2020-04-18-16-27-39.png?raw=true)
