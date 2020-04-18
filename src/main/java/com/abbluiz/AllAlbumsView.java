@@ -6,7 +6,10 @@ import com.abbluiz.service.AlbumService;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +47,17 @@ public class AllAlbumsView {
 
     public String redirectToEditAlbum() {
         return "/editAlbum.xhtml?faces-redirect=true";
+    }
+
+    public void redirectToAlbumUrl(long id) {
+
+        try {
+            ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
+            externalContext.redirect(albumService.findById(id).getAlbumUrl());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

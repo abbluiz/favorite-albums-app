@@ -60,6 +60,12 @@
                 </p:inputText>
                 <p:message for="coverUrl" id="msgcoverurl" display="icon" />
 
+                <p:outputLabel for="albumUrl" value="Album URL:" />
+                <p:inputText id="albumUrl" value="#{editAlbumView.albumUrl}" required="false" label="albumUrl">
+                    <p:ajax update="albumUrl" event="keyup" />
+                </p:inputText>
+                <p:message for="albumUrl" id="msgalbumurl" display="icon" />
+
             </h:panelGrid>
 
             <p:commandButton value="Save" update="panel" action="#{editAlbumView.save}" icon="pi pi-check" />

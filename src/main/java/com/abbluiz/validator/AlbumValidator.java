@@ -16,8 +16,16 @@ public class AlbumValidator implements Validator {
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object name) {
 
-        String url = (String)name;
-        String extension = url.substring(url.lastIndexOf("."));
+        String extension = "";
+
+        try {
+
+            String url = (String)name;
+            extension = url.substring(url.lastIndexOf("."));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         if (!Arrays.asList(acceptedCoverExtensions).contains(extension)) {
 

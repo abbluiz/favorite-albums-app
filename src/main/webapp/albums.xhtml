@@ -60,20 +60,38 @@
 
                 </p:outputPanel>
 
-                <p:commandButton value="Update Album" action="#{allAlbumsView.redirectToEditAlbum}"
-                                 style="margin-right:20px;">
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+
+                <p:commandButton
+                        value="Listen Now"
+                        rendered="#{not empty album.albumUrl}"
+                        action="#{allAlbumsView.redirectToAlbumUrl(album.id)}"
+                        style="margin-right:20px;"/>
+
+                <p:commandButton
+                        value="Update Album"
+                        action="#{allAlbumsView.redirectToEditAlbum}"
+                        style="margin-right:20px;">
                     <f:actionListener binding="#{editAlbumView.populateView(album.id)}" />
                 </p:commandButton>
 
-                <p:commandButton value="Remove Album from Favorite List" action="#{allAlbumsView.deleteAlbum(album.id)}"
-                                 style="margin-right:20px;"/>
+                <p:commandButton
+                        value="Remove Album"
+                        action="#{allAlbumsView.deleteAlbum(album.id)}"
+                        style="margin-right:20px;"/>
 
             </h:panelGrid>
+
             <hr/>
 
         </p:repeat>
 
-        <p:commandButton value="Add Album to Favorite List" action="#{allAlbumsView.redirectToEditAlbum}" style="margin-right:20px;"/>
+        <p:commandButton
+                value="Add Album to Favorite List"
+                action="#{allAlbumsView.redirectToEditAlbum}"
+                style="margin-right:20px;"/>
 
     </h:form>
 
