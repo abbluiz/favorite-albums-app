@@ -25,8 +25,10 @@ public class Album {
     private int numberOfTracks;
     private String predominantGenre;
     private String label;
+    private String coverUrl;
 
-    public Album(String name, String artist, int year, int numberOfTracks, String predominantGenre, String label) {
+    public Album(String name, String artist, int year, int numberOfTracks,
+                 String predominantGenre, String label, String coverUrl) {
 
         this.name = name;
         this.artist = artist;
@@ -34,6 +36,7 @@ public class Album {
         this.numberOfTracks = numberOfTracks;
         this.predominantGenre = predominantGenre;
         this.label = label;
+        this.coverUrl = coverUrl;
 
     }
 
