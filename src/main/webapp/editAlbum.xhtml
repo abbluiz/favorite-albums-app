@@ -19,7 +19,6 @@
 
                 <p:outputLabel for="name" value="Name:" />
                 <p:inputText id="name" value="#{editAlbumView.name}" required="true" label="name">
-                    <f:validator validatorId="albumValidator" />
                     <p:ajax update="name" event="keyup" />
                 </p:inputText>
                 <p:message for="name" id="msgname" display="icon" />
@@ -56,6 +55,7 @@
 
                 <p:outputLabel for="coverUrl" value="Cover URL:" />
                 <p:inputText id="coverUrl" value="#{editAlbumView.coverUrl}" required="true" label="coverUrl">
+                    <f:validator validatorId="albumValidator" />
                     <p:ajax update="coverUrl" event="keyup" />
                 </p:inputText>
                 <p:message for="coverUrl" id="msgcoverurl" display="icon" />

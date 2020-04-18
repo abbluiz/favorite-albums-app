@@ -11,15 +11,19 @@ import java.util.Arrays;
 @FacesValidator
 public class AlbumValidator implements Validator {
 
-    private String[] albumNames = {"DAMN.", "I Could Live in Hope"};
+    private String[] acceptedCoverExtensions = {".jpg", ".jpeg", ".png", ".webp"};
 
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object name) {
 
-        if (!Arrays.asList(albumNames).contains(name)) {
+        String url = (String)name;
+        String extension = url.substring(url.lastIndexOf("."));
+
+        if (!Arrays.asList(acceptedCoverExtensions).contains(extension)) {
 
             FacesMessage msg =
-                    new FacesMessage("Album name should be one of these: " + Arrays.toString(albumNames));
+                    new FacesMessage("Album cover art image url should have one of these extensions: "
+                            + Arrays.toString(acceptedCoverExtensions));
             msg.setSeverity(FacesMessage.SEVERITY_ERROR);
             throw new ValidatorException(msg);
 
